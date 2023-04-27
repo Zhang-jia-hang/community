@@ -3,7 +3,7 @@ package life.majiang.community.dto;
 import lombok.Data;
 
 /**
- * Created by codedrinker on 2019/4/24.
+ * 授权获得的token传输对象
  */
 @Data
 public class AccessTokenDTO {

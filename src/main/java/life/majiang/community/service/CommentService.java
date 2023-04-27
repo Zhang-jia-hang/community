@@ -43,7 +43,7 @@ public class CommentService {
     @Autowired
     private NotificationMapper notificationMapper;
 
-    @Transactional
+    @Transactional(rollbackFor = {})
     public void insert(Comment comment, User commentator) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
             throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);

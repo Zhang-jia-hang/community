@@ -23,8 +23,10 @@ public class GithubUserStrategy implements UserStrategy {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setCode(code);
         accessTokenDTO.setState(state);
+
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
+
         LoginUserInfo loginUserInfo = new LoginUserInfo();
         loginUserInfo.setAvatarUrl(githubUser.getAvatarUrl());
         loginUserInfo.setBio(githubUser.getBio());

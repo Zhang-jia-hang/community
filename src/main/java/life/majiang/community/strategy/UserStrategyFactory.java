@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class UserStrategyFactory {
 
+    // 这个List<UserStrategy> 为什么有2个参数
     @Autowired
     private List<UserStrategy> strategies;
 

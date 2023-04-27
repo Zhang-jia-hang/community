@@ -5,6 +5,9 @@ package life.majiang.community.exception;
  */
 public enum CustomizeErrorCode implements ICustomizeErrorCode {
 
+    /**
+     * 你找到问题不在了，要不要换个试试
+     */
     QUESTION_NOT_FOUND(2001, "你找到问题不在了，要不要换个试试？"),
     TARGET_PARAM_NOT_FOUND(2002, "未选中任何问题或评论进行回复"),
     NO_LOGIN(2003, "当前操作需要登录，请登陆后重试"),

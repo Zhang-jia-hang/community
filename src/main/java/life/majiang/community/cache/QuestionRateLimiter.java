@@ -20,6 +20,9 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 评论限流
+ */
 @Service
 @Slf4j
 public class QuestionRateLimiter {

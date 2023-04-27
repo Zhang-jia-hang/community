@@ -44,13 +44,24 @@ public class AuthorizeController {
     @Autowired
     private UserService userService;
 
+    /**
+     * OAuth2授权登录，调用第三方授权服务返回信息
+     * @param type 登录方式
+     * @param code 授权返回状态码
+     * @param state 状态
+     * @param request 请求
+     * @param response 相应
+     * @return 重定向到首页
+     */
     @GetMapping("/callback/{type}")
     public String newCallback(@PathVariable(name = "type") String type,
                               @RequestParam(name = "code") String code,
                               @RequestParam(name = "state", required = false) String state,
                               HttpServletRequest request,
                               HttpServletResponse response) {
+        // 1、判断登录方式 使用决策模式判断是gitee还是github登录
         UserStrategy userStrategy = userStrategyFactory.getStrategy(type);
+        // 2、第三方授权获取用户登录信息
         LoginUserInfo loginUserInfo = userStrategy.getUser(code, state);
         if (loginUserInfo != null && loginUserInfo.getId() != null) {
             User user = new User();
@@ -60,6 +71,7 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(loginUserInfo.getId()));
             user.setType(type);
             user.setAvatarUrl(loginUserInfo.getAvatarUrl());
+            // 授权登录后添加用户信息
             userService.createOrUpdate(user);
             Cookie cookie = new Cookie("token", token);
             cookie.setMaxAge(60 * 60 * 24 * 30 * 6);
@@ -73,6 +85,12 @@ public class AuthorizeController {
         }
     }
 
+    /**
+     * 退出登录，清空cookie数据，返回到首页
+     * @param request 请求
+     * @param response 响应
+     * @return 重定向到首页
+     */
     @GetMapping("/logout")
     public String logout(HttpServletRequest request,
                          HttpServletResponse response) {

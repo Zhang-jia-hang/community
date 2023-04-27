@@ -13,6 +13,13 @@ public class GiteeUserStrategy implements UserStrategy {
 
     @Override
     public LoginUserInfo getUser(String code, String state) {
+        /*
+         *  String client_id;
+         *  String client_secret;
+         *  String code;
+         *  String redirect_uri;
+         *  String state;
+         */
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setCode(code);
         accessTokenDTO.setState(state);
