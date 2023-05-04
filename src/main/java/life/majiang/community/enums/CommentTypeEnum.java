@@ -1,5 +1,7 @@
 package life.majiang.community.enums;
 
+import java.util.Objects;
+
 /**
  * Created by codedrinker on 2019/5/31.
  */
@@ -19,7 +21,7 @@ public enum CommentTypeEnum {
 
     public static boolean isExist(Integer type) {
         for (CommentTypeEnum commentTypeEnum : CommentTypeEnum.values()) {
-            if (commentTypeEnum.getType() == type) {
+            if (Objects.equals(commentTypeEnum.getType(), type)) {
                 return true;
             }
         }

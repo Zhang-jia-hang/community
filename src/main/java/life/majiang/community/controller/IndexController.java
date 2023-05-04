@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * Created by codedrinker on 2019/4/24.
+ * 首页控制器
  */
 @Controller
 public class IndexController {
@@ -23,6 +23,16 @@ public class IndexController {
     @Autowired
     private HotTagCache hotTagCache;
 
+    /**
+     * 首页展示
+     * @param model 返回数据
+     * @param page 页数
+     * @param size 一页的大小
+     * @param search 查询关键字
+     * @param tag 标签关键字
+     * @param sort 排序规则
+     * @return 跳转页面
+     */
     @GetMapping("/")
     public String index(Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,

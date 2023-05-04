@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 /**
- * Created by codedrinker on 2019/5/21.
+ * 问答控制类
  */
 @Controller
 public class QuestionController {
@@ -29,7 +29,7 @@ public class QuestionController {
 
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id") String id, Model model) {
-        Long questionId = null;
+        Long questionId;
         try {
             questionId = Long.parseLong(id);
         } catch (NumberFormatException e) {

@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by codedrinker on 2019/6/26.
+ * 文件上传控制类
  */
 @Controller
 @Slf4j

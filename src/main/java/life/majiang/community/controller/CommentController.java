@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by codedrinker on 2019/5/30.
+ * 评论管理
  */
 @Controller
 public class CommentController {

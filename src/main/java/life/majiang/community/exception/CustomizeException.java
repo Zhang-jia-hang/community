@@ -1,7 +1,7 @@
 package life.majiang.community.exception;
 
 /**
- * Created by codedrinker on 2019/5/28.
+ * 自定义异常处理
  */
 public class CustomizeException extends RuntimeException {
     private String message;
